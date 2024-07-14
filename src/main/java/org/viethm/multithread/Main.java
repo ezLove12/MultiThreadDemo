@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         int totalRecords = getTotalRecordCount();
-
+        long startTime = System.currentTimeMillis();
         try (ExecutorService executor = Executors.newCachedThreadPool()) {
             List<Future<Void>> futures = new ArrayList<>();
 
@@ -39,7 +39,7 @@ public class Main {
 
             executor.shutdown();
         }
-
+        System.out.println("RUN TIME: "+(System.currentTimeMillis()- startTime));
     }
 
     public static int getTotalRecordCount() {
